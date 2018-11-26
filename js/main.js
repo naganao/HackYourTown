@@ -13,8 +13,8 @@ $(function() {
   // if(month.length == 1){
   //   var month = "0" + month;
   // }
-  //json = "https://raw.githubusercontent.com/wakayama-pref-org/pr_magazine_event_" + jyear + "_" + jmonth + "/master/json/pr_magazine_event_" + jyear + "_" + jmonth + ".json";
-  json = "https://raw.githubusercontent.com/wakayama-pref-org/pr_magazine_event_2018_05/master/json/pr_magazine_event_2018_05.json" // デバッグ用
+  json = "https://raw.githubusercontent.com/wakayama-pref-org/pr_magazine_event_" + jyear + "_" + jmonth + "/master/json/pr_magazine_event_" + jyear + "_" + jmonth + ".json";
+  // json = "https://raw.githubusercontent.com/wakayama-pref-org/pr_magazine_event_2018_05/master/json/pr_magazine_event_2018_05.json" // デバッグ用
 });
 
 $(document).ready(function calendarMake(){ //カレンダーを作成する関数

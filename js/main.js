@@ -6,7 +6,8 @@ var jmonth;
 $(function() {
   var jdate = new Date();
   var jyear = jdate.getFullYear();
-  var jmonth = ("00" + (jdate.getMonth()+1)).slice(-2);
+  // var jmonth = ("00" + (jdate.getMonth()+1)).slice(-2);
+  var jmonth = ("00" + (jdate.getMonth())).slice(-2);
   console.log(jmonth);
   console.log(jyear);
   // if(month.length == 1){

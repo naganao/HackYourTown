@@ -95,7 +95,8 @@ function calendarMake(json) { //カレンダーを作成する関数
     $('#calendar').fullCalendar({
       events:event_array
     });
-  });
 
-  $("#licence").append("データ提供元：" + json);
+    $("#licence").append("データ提供元：" + json);
+    
+  });
 }

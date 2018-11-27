@@ -8,8 +8,8 @@ var event_array = [];
 $(function() {
   var jdate = new Date();
   var jyear = jdate.getFullYear();
-  // var jmonth = ("00" + (jdate.getMonth()+1)).slice(-2);
-  var jmonth = ("00" + (jdate.getMonth())).slice(-2);
+  var jmonth = ("00" + (jdate.getMonth()+1)).slice(-2);
+  // var jmonth = ("00" + (jdate.getMonth())).slice(-2);
   console.log(jmonth);
   console.log(jyear);
   // if(month.length == 1){
@@ -17,6 +17,28 @@ $(function() {
   // }
   json = "https://raw.githubusercontent.com/wakayama-pref-org/pr_magazine_event_" + jyear + "_" + jmonth + "/master/json/pr_magazine_event_" + jyear + "_" + jmonth + ".json";
   //json = "https://raw.githubusercontent.com/wakayama-pref-org/pr_magazine_event_2018_05/master/json/pr_magazine_event_2018_05.json" // デバッグ用
+
+  $.ajax({
+    method: 'get',
+    url: json
+  })
+  .done(response => {
+    console.log(response);
+    putMarker(json);
+  })
+  .fail(function( jqXHR, textStatus, errorThrown ) {
+    var jdate = new Date();
+    jdate.setMonth(jdate.getMonth() - 1);
+    jdate.getMonth() + 1;
+    var jyear = jdate.getFullYear();
+    var jmonth = ("00" + (jdate.getMonth()+1)).slice(-2);
+    // var jmonth = ("00" + (jdate.getMonth())).slice(-2);
+    console.log(jmonth);
+    console.log(jyear);
+    json = "https://raw.githubusercontent.com/wakayama-pref-org/pr_magazine_event_" + jyear + "_" + jmonth + "/master/json/pr_magazine_event_" + jyear + "_" + jmonth + ".json";
+    putMarker(json);
+  });
+
 });
 
 function getQuery() { // クエリを処理する
@@ -133,7 +155,7 @@ function geoResults(eventObj){
 
 }
 
-function putMarker(){　//マーカをたてる関数
+function putMarker(json){　//マーカをたてる関数
   $.getJSON(json , function(data) {
     len = data.length;
     var markers = [];

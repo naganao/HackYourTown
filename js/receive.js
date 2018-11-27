@@ -25,6 +25,7 @@ $(function() {
   .done(response => {
     console.log(response);
     putMarker(json);
+    $("#licence").append("データ提供元：" + json);
   })
   .fail(function( jqXHR, textStatus, errorThrown ) {
     var jdate = new Date();
@@ -37,6 +38,7 @@ $(function() {
     console.log(jyear);
     json = "https://raw.githubusercontent.com/wakayama-pref-org/pr_magazine_event_" + jyear + "_" + jmonth + "/master/json/pr_magazine_event_" + jyear + "_" + jmonth + ".json";
     putMarker(json);
+    $("#licence").append("データ提供元：" + json);
   });
 
 });
@@ -66,8 +68,8 @@ function initMap() {
     },
     zoom: 10 // 地図のズームを指定
   });
-  $("#licence").append("データ提供元：" + json);
-    putMarker();
+  // $("#licence").append("データ提供元：" + json);
+    // putMarker();
 }
 
 $(function(){
